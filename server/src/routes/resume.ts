@@ -12,12 +12,10 @@ router.get('/', optionalAuth, (req: AuthRequest, res: Response, next: NextFuncti
     const db = getDb();
     const userId = req.userId;
 
-    let resumes;
+    let resumes: any[] = [];
     if (userId) {
       resumes = db.prepare('SELECT * FROM resumes WHERE user_id = ? ORDER BY updated_at DESC')
-        .all(userId);
-    } else {
-      resumes = [];
+        .all(userId) as any[];
     }
 
     const parsed = resumes.map((r: any) => ({

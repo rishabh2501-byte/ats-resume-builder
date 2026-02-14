@@ -35,13 +35,13 @@ router.post('/register', async (req, res: Response, next: NextFunction) => {
     const token = jwt.sign(
       { id, email, name },
       process.env.JWT_SECRET || 'default-secret',
-      { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
+      { expiresIn: '7d' }
     );
 
     const refreshToken = jwt.sign(
       { id },
       process.env.JWT_SECRET || 'default-secret',
-      { expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '30d' }
+      { expiresIn: '30d' }
     );
 
     res.status(201).json({
@@ -85,13 +85,13 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
     const token = jwt.sign(
       { id: user.id, email: user.email, name: user.name },
       process.env.JWT_SECRET || 'default-secret',
-      { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
+      { expiresIn: '7d' }
     );
 
     const refreshToken = jwt.sign(
       { id: user.id },
       process.env.JWT_SECRET || 'default-secret',
-      { expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '30d' }
+      { expiresIn: '30d' }
     );
 
     res.json({
@@ -163,7 +163,7 @@ router.post('/refresh', (req, res: Response, next: NextFunction) => {
     const newToken = jwt.sign(
       { id: user.id, email: user.email, name: user.name },
       process.env.JWT_SECRET || 'default-secret',
-      { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
+      { expiresIn: '7d' }
     );
 
     res.json({
