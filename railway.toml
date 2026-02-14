@@ -1,8 +1,11 @@
 [build]
 builder = "nixpacks"
+watchPatterns = ["server/**"]
 buildCommand = "cd server && npm install && npm run build"
 
 [deploy]
-startCommand = "cd server && npm start"
+startCommand = "cd server && node dist/index.js"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 100
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
