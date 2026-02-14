@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SmartAnalyzerPage() {
   const [file, setFile] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [step, setStep] = useState<'upload' | 'analyzing' | 'results'>('upload');
   const [results, setResults] = useState<any>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);

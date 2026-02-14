@@ -1,5 +1,5 @@
 import { useResumeStore } from '@/store/resumeStore';
-import { Switch } from '@/components/ui/switch';
+// import { Switch } from '@/components/ui/switch';
 import { GripVertical, Eye, EyeOff } from 'lucide-react';
 import {
   DndContext,

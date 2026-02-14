@@ -66,7 +66,7 @@ export default function CreativeTemplate({ resume }: TemplateProps) {
                   Experience
                 </h2>
                 <div className="space-y-4">
-                  {experience.map((exp, index) => (
+                  {experience.map((exp) => (
                     <div key={exp.id} className="bg-white rounded-xl p-5 shadow-sm border-l-4 border-purple-500">
                       <div className="flex justify-between items-start flex-wrap gap-2">
                         <div>

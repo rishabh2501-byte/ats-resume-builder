@@ -41,7 +41,7 @@ export default function ResumeGeneratorPage() {
     topSkills: '',
     previousCompanies: '',
   });
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [results, setResults] = useState<any>(null);
   const { loadResume } = useResumeStore();
   const navigate = useNavigate();
