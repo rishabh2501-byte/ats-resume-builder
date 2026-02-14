@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATS Resume Optimizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ATS Resume Optimizer</h1>
+    </header>
+
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Analyzing...</p>
+    </div>
+
+    <div id="no-job" class="section">
+      <p class="info">Navigate to a job posting on LinkedIn, Naukri, or Indeed to extract the job description.</p>
+      <button id="extract-btn" class="btn primary">Extract Job Description</button>
+    </div>
+
+    <div id="job-found" class="section hidden">
+      <div class="job-info">
+        <h2 id="job-title">Job Title</h2>
+        <p id="job-company" class="company">Company Name</p>
+      </div>
+
+      <div id="score-section" class="hidden">
+        <div class="score-circle">
+          <span id="ats-score">--</span>
+          <span class="score-label">ATS Score</span>
+        </div>
+      </div>
+
+      <div id="keywords-section" class="hidden">
+        <h3>Missing Keywords</h3>
+        <div id="missing-keywords" class="keywords-list"></div>
+      </div>
+
+      <div class="actions">
+        <button id="analyze-btn" class="btn primary">Analyze Match</button>
+        <button id="optimize-btn" class="btn secondary">Open Builder</button>
+      </div>
+    </div>
+
+    <div id="resume-section" class="section">
+      <h3>Your Resume</h3>
+      <textarea id="resume-text" placeholder="Paste your resume text here..."></textarea>
+      <button id="save-resume" class="btn secondary small">Save Resume</button>
+    </div>
+
+    <footer>
+      <a href="http://localhost:5173" target="_blank">Open Full App</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

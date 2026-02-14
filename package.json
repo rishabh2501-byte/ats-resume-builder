@@ -1,0 +1,42 @@
+{
+  "name": "ats-resume-builder",
+  "version": "1.0.0",
+  "description": "Complete ATS Resume Builder Ecosystem",
+  "private": true,
+  "workspaces": [
+    "web",
+    "server",
+    "desktop",
+    "shared"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:web && npm run install:server && npm run install:desktop && npm run install:shared",
+    "install:web": "cd web && npm install",
+    "install:server": "cd server && npm install",
+    "install:desktop": "cd desktop && npm install",
+    "install:shared": "cd shared && npm install",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:web\"",
+    "dev:web": "cd web && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "desktop": "cd desktop && npm run dev",
+    "build": "npm run build:shared && npm run build:web && npm run build:server",
+    "build:web": "cd web && npm run build",
+    "build:server": "cd server && npm run build",
+    "build:desktop": "cd desktop && npm run build",
+    "build:extension": "cd extension && npm run build",
+    "build:shared": "cd shared && npm run build",
+    "test": "npm run test:web && npm run test:server",
+    "test:web": "cd web && npm run test",
+    "test:server": "cd server && npm run test",
+    "test:e2e": "cd web && npm run test:e2e",
+    "lint": "npm run lint:web && npm run lint:server",
+    "lint:web": "cd web && npm run lint",
+    "lint:server": "cd server && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
