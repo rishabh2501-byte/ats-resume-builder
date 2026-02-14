@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Upload, FileText, Sparkles, Download, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
 import { useResumeStore } from '@/store/resumeStore';
 import { useNavigate } from 'react-router-dom';
+import api from '@/lib/api';
 
 export default function SmartAnalyzerPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -44,7 +45,7 @@ export default function SmartAnalyzerPage() {
       formData.append('resume', file);
       formData.append('jobDescription', jobDescription);
 
-      const response = await fetch('/api/upload/auto-fix', {
+      const response = await api.fetch('/api/upload/auto-fix', {
         method: 'POST',
         body: formData,
       });

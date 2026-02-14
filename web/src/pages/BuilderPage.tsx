@@ -13,6 +13,7 @@ import CertificationsForm from '@/components/builder/CertificationsForm';
 import ResumePreview from '@/components/builder/ResumePreview';
 import SectionManager from '@/components/builder/SectionManager';
 import { TEMPLATES } from '@/components/builder/templates';
+import api from '@/lib/api';
 
 export default function BuilderPage() {
   const { currentResume, createResume, loadResume, updateResume } = useResumeStore();
@@ -32,7 +33,7 @@ export default function BuilderPage() {
 
   const handleExport = async (format: 'pdf' | 'docx' | 'txt') => {
     try {
-      const response = await fetch(`/api/export/${format}`, {
+      const response = await api.fetch(`/api/export/${format}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resumeData: currentResume }),
@@ -96,7 +97,7 @@ export default function BuilderPage() {
       const formData = new FormData();
       formData.append('resume', file);
 
-      const response = await fetch('/api/upload/parse', {
+      const response = await api.fetch('/api/upload/parse', {
         method: 'POST',
         body: formData,
       });

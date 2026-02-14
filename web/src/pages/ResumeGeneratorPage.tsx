@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import api from '@/lib/api';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -57,7 +58,7 @@ export default function ResumeGeneratorPage() {
     setStep('generating');
 
     try {
-      const response = await fetch('/api/upload/generate', {
+      const response = await api.fetch('/api/upload/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ basicInfo, jobDescription }),
